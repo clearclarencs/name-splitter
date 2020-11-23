@@ -12,24 +12,41 @@ def readFiles():
     return names, tasks
 
 
+# splits list into 2D list, grouped into length of elements
+def splitList(names):
+    maxWordLength = len(max(names, key=len))
+    
+    lengthSeparatedList = []
+    for i in range(1, maxWordLength + 1):
+        lengthSeparatedList.append(list(filter(lambda x: len(x) == i, names)))
+
+    # Will check longer less common names first
+    lengthSeparatedList.reverse()
+    return lengthSeparatedList
+
 def binarySearch(arr, x): 
     low = 0
     high = len(arr) - 1
     mid = 0
+
+    # shortens prefix so only same number of characters are compared with names in list
+    length = len(arr[0])
+    string = x[:length].capitalize()
   
     while low <= high: 
   
         mid = (high + low) // 2
-        # shortens prefix so only same number of characters are compared with names list
-        string = x[:len(arr[mid])].capitalize()
         comparison = arr[mid].capitalize()
 
+        if string == comparison:
+            return mid, string
+
         # Check if x is present at mid 
-        if comparison < string: 
+        if comparison < x: 
             low = mid + 1
   
         # If x is greater, ignore left half 
-        elif comparison > string: 
+        elif comparison > x: 
             high = mid - 1
   
         # If x is smaller, ignore right half 
@@ -40,7 +57,7 @@ def binarySearch(arr, x):
     return False, False;
 
 
-def completeTask(task, names):
+def completeTask(task, separatedNames):
     taskSpilt = task.split(",")
     
     email = taskSpilt[0]
@@ -51,11 +68,16 @@ def completeTask(task, names):
     remove_digits = str.maketrans('', '', digits)
     prefix = email.split("@")[0].capitalize().translate(remove_digits)
 
-    found, string = binarySearch(names, prefix)
+    found = False
+    for names in separatedNames:
+        # Checks if list isn't empty
+        if names:
+            found, string = binarySearch(names, prefix)
 
-    if found:
-        newFirstName = string
-        newLastName = prefix.replace(string, "").capitalize()
+            if found:
+                newFirstName = string
+                newLastName = prefix.replace(string, "").capitalize()
+                break
 
     if not found:
         newFirstName = newLastName = prefix
@@ -66,10 +88,12 @@ def completeTask(task, names):
 
 
 names, tasks = readFiles()
+separatedNames = splitList(names)
 final = ""
 
+
 for task in tasks:
-    final += completeTask(task, names)
+    final += completeTask(task, separatedNames)
 
 with open("form-done.csv", "w") as r:
     r.write(final)
