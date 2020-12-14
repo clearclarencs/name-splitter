@@ -7,12 +7,9 @@ Feel free to create a pull request if you feel there is an improvement that you 
 
 Primarily for NeoRaffle program, takes email in first column of csv and attempts to extract the first and surname from it.
 
-<br/>
-File structure:
 
-![](https://i.imgur.com/VTH1J8Y.png)
+The program should be in the same directory as tasks.csv, for neoraffle this is the General Settings folder
 
-<br/>
 tasks.csv:
 
 ```EMAIL,FIRST NAME,LAST NAME,HOUSE NUMBER,ADDRESS LINE 1,ADDRESS LINE 2,CITY,POSTCODE / ZIP,STATE/PROVINCE/REGION,COUNTRY,PASSWORD,PHONE PREFIX (e.g. +49),INSTAGRAM```
@@ -20,3 +17,5 @@ tasks.csv:
 Then simply run the program, depending on tasks length and machine specs could take a while.
 
 Will output to form-done.csv to check and copy over.
+
+If you wish to adapt to a different setup / raffle bot please and wish to add please use a branch.
