@@ -19,3 +19,5 @@ Then simply run the program, depending on tasks length and machine specs could t
 Will output to form-done.csv to check and copy over.
 
 If you wish to adapt to a different setup / raffle bot please and wish to add please use a branch.
+
+*exe is windows only*
