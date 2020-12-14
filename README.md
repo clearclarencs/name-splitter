@@ -1,4 +1,4 @@
-# name-splitter
+# Name Splitter
 Please star this repo, I could charge for this program but don't and a star helps build my reputation as a developer.
 
 
