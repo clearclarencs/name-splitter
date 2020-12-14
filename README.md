@@ -8,7 +8,7 @@ Feel free to create a pull request if you feel there is an improvement that you 
 Primarily for NeoRaffle program, takes email in first column of csv and attempts to extract the first and surname from it.
 
 
-The program should be in the same directory as tasks.csv, for neoraffle this is the General Settings folder
+All files should be in the same directory as tasks.csv, for neoraffle this is the General Settings folder
 
 tasks.csv:
 
