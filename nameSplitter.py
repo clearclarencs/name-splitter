@@ -81,9 +81,15 @@ def completeTask(task, separatedNames):
 
     if not found:
         newFirstName = newLastName = prefix
+    
+    restOfData = ""
 
-    return str(email + "," + newFirstName + "," + newLastName + "," + taskSpilt[3] + "," + taskSpilt[4] + "," + taskSpilt[5] +
-                             "," + taskSpilt[6] + "," + taskSpilt[7] + "," + taskSpilt[8] + "," + taskSpilt[9] + "," + taskSpilt[10] + "," + taskSpilt[11] + "\n")
+    for data in taskSpilt[3:]:
+        restOfData += "," + data
+    
+    restOfData += "\n"
+
+    return str(email + "," + newFirstName + "," + newLastName + restOfData)
 
 
 
