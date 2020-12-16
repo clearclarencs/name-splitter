@@ -1,5 +1,5 @@
 # Name Splitter
-Please star this repo, people have told me I could charge for this program but don't and a star helps build my reputation as a developer.
+Please star this repo if it helped, people have told me I could charge for this program but I feel this should be available to the community and a star helps build my reputation as a developer.
 
 
 Feel free to create a pull request if you feel there is an improvement that you can add.
