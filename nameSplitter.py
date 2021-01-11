@@ -1,5 +1,5 @@
 # split names from email
-from string import digits
+from string import digits, punctuation
 
 
 def readFiles():
@@ -63,9 +63,9 @@ def completeTask(task, separatedNames):
     originalFirstName = taskSpilt[1]
     originalLastName = taskSpilt[2]
 
-    # removes numbers from prefix
-    remove_digits = str.maketrans('', '', digits)
-    prefix = email.split("@")[0].capitalize().translate(remove_digits)
+    # removes crap from prefix
+    remove_crap = str.maketrans('', '', digits + punctuation)
+    prefix = email.split("@")[0].capitalize().translate(remove_crap)
 
     found = False
     for names in separatedNames:
