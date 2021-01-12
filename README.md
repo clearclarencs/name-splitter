@@ -12,7 +12,7 @@ Place exe or py in the same directory as tasks.csv, for neoraffle this is the Ge
 
 tasks.csv:
 
-```EMAIL,FIRST NAME,LAST NAME,...```
+```EMAIL,...```
 
 Then simply run the program, depending on tasks length and machine specs could take a while.
 

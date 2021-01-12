@@ -60,8 +60,6 @@ def completeTask(task, separatedNames):
     taskSpilt = task.split(",")
     
     email = taskSpilt[0]
-    originalFirstName = taskSpilt[1]
-    originalLastName = taskSpilt[2]
 
     # removes crap from prefix
     remove_crap = str.maketrans('', '', digits + punctuation)
@@ -91,14 +89,17 @@ def completeTask(task, separatedNames):
     return str(email + "," + newFirstName + "," + newLastName + restOfData)
 
 
+try:
+    names, tasks = readFiles()
+    separatedNames = splitList(names)
+    final = ""
 
-names, tasks = readFiles()
-separatedNames = splitList(names)
-final = ""
 
+    for task in tasks:
+        final += completeTask(task, separatedNames)
 
-for task in tasks:
-    final += completeTask(task, separatedNames)
-
-with open("form-done.csv", "w") as r:
-    r.write(final)
+    with open("form-done.csv", "w") as r:
+        r.write(final)
+except Exception as e:
+    print("Error "+str(e))
+input("Finished")
